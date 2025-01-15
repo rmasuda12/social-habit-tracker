@@ -1,0 +1,86 @@
+
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.habit {
+    margin: 1.5rem;
+    padding: 0.5rem;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+    max-width: $mobile-width;
+    
+
+    &__tracker {
+        // border: 1px solid;
+        width: 100%;
+    }
+
+    &__head {
+        // background: grey;
+    }
+
+    &__body {
+
+    }
+
+    &__habit {
+        text-align: left;
+    }
+
+    &__cell {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__clicker {
+        height: 1.25rem;
+        width: 1.25rem;
+        border: 1px solid grey;
+        border-radius: 4px;
+        margin: auto;
+
+        &--filled {
+            background: green;
+        }
+
+        &--empty {
+            background: white;
+        }
+    }
+}
+
+.habit-tracker table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+  }
+  
+  .habit-tracker th,
+  .habit-tracker td {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .habit-tracker th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+  }
+  
+  .habit-tracker td {
+    cursor: pointer;
+    background-color: white;
+  }
+  
+  .habit-tracker td.filled {
+    background-color: #00c851; /* Green */
+  }
+  
+  .habit-tracker th:first-child {
+    text-align: left;
+    width: 100px; /* Adjust for habit names */
+  }
