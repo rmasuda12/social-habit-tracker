@@ -1,52 +1,56 @@
 import './HabitTracker.scss'
 import { useState , useEffect} from 'react';
+import axios from 'axios';
 
 function HabitTracker() {
     //example data
-    const habits = ["Exercise", "Water", "Hugs", "Diet", "Meditate"];
-    const dates = [1, 2, 3, 4, 5, 6, 7];
+    const dates = ["2025-01-01", "2025-01-02", "2025-01-03", "2025-01-04", "2025-01-05", "2025-01-06", "2025-01-07"];
 
-    const [completedDates, setCompletedDates] = useState( {
-        "Exercise": [1],
-        "Water": [1,2,3,4,5,6,7],
-        "Hugs": [],
-        "Diet": [1,5,7],
-        "Meditate": [1,2,3]
+    const [completedDates, setCompletedDates] = useState([]);
+    // [
+    //     {
+    //     "completion_dates": ["2025-01-01", "2025-01-02", "2025-01-03"],
+    //     "habit_name": "Drink Water",
+    //     "id": 1,
+    //     "user_id": 1
+    //     }
+
+    // ]
+    async function getHabitData() {
+        const response = await axios.get('http://localhost:8080/habits');
+        console.log(response.data)
+        setCompletedDates(response.data)
     }
-);
 
-    // useEffect(()=>{
-    //     setCompletedDates({
-    //         "Exercise": [1],
-    //         "Water": [1,2,3,4,5,6,7],
-    //         "Hugs": [],
-    //         "Diet": [1,5,7],
-    //         "Meditate": [1,2,3]
-    //       })
-    // },[])
+    useEffect(()=> {
+        getHabitData();
+    },[])
 
-    //need a click handler to change the color and state
-    //need to use useState? to rerender
-    // const [habitData, setHabitData] = useState(
-    //     habits.map(() => Array(dates.length).fill(0))
-    //   );
-    
-      // Toggle cell value
-    function habitClickHandler(habitName, date) {
-        console.log("completed Dates[habit]",completedDates[habitName]);
-        console.log("before splice", completedDates);
-        const newCompletedDates = {...completedDates};
+    function habitClickHandler(habitIndex, date) {
+        const newCompletedDates = [...completedDates];
+        console.log("this is the habit clickec on",completedDates[habitIndex].habit_name )
 
-        if (completedDates[habitName].includes(date)) {
-            const index = completedDates[habitName].indexOf(date);
-            newCompletedDates[habitName].splice(index, 1);
+        if (completedDates[habitIndex].completion_dates.includes(date)){
+            const index = completedDates[habitIndex].completion_dates.indexOf(date);
+            newCompletedDates[habitIndex].completion_dates.splice(index, 1);
             setCompletedDates(newCompletedDates);
         } else {
-            newCompletedDates[habitName].push(date);
+            console.log('running else');
+            newCompletedDates[habitIndex].completion_dates.push(date);
             setCompletedDates(newCompletedDates);
         }
     }
 
+    async function updateCompletionHandler() {
+        try {
+            const response = await axios.put("http://localhost:8080/habits",completedDates); 
+            getHabitData()
+            console.log(response)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    console.log(completedDates);
 
     return(
         <>
@@ -54,22 +58,27 @@ function HabitTracker() {
         <table className='habit__tracker'>
         <thead className='habit__head'>
             <tr>
-            <th className='habit__month'>January</th>
-            {dates.map((date) => (
-              <th key={date}>{date}</th>
-            ))}
+            <th></th>
+                {dates.map((date, index) => {
+                    const dateData = new Date(date);
+                    const day = dateData.getUTCDate(); 
+                    return(
+                    <th key={index} className='habit__date'>{day}</th>
+                    )
+                })}
             </tr>
         </thead>
         <tbody className='habit__body'>
-          {Object.keys(completedDates).map((habitName, habitIndex) => (
+          {completedDates.map((habit, habitIndex) => (
             <tr key={habitIndex}>
-              <th className='habit__habit'>{habitName}</th>
+              <th className='habit__habit'>{habit.habit_name}</th>
               {dates.map((date, dateIndex) => (
 
                 <td className='' key={dateIndex}>
                     <div 
-                    className={completedDates[habitName].includes(date)? 'habit__clicker habit__clicker--filled': 'habit__clicker habit__clicker--empty'}
-                    onClick={()=>habitClickHandler(habitName, date)}>
+                    className={habit.completion_dates.includes(date)? 'habit__clicker habit__clicker--filled': 'habit__clicker habit__clicker--empty'}
+                    onClick={()=> {habitClickHandler(habitIndex, date); updateCompletionHandler()} }>
+
 
                     </div>
                 </td>
@@ -79,6 +88,7 @@ function HabitTracker() {
           ))}
         </tbody>
       </table>
+      {/* <button onClick={updateCompletionHandler}>submit</button> */}
     </div>
     </>
     )
