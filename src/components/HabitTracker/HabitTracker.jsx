@@ -2,8 +2,12 @@ import './HabitTracker.scss'
 import { useState , useEffect} from 'react';
 import axios from 'axios';
 
+//dotenv import
+const baseURL = import.meta.env.VITE_API_URL;
+
 function HabitTracker() {
     //example data
+    const user_id = 1;
     const dates = ["2025-01-01", "2025-01-02", "2025-01-03", "2025-01-04", "2025-01-05", "2025-01-06", "2025-01-07"];
 
     const [completedDates, setCompletedDates] = useState([]);
@@ -17,7 +21,7 @@ function HabitTracker() {
 
     // ]
     async function getHabitData() {
-        const response = await axios.get('http://localhost:8080/habits');
+        const response = await axios.get(`${baseURL}/habits/${user_id}`);
         console.log(response.data)
         setCompletedDates(response.data)
     }
@@ -43,7 +47,7 @@ function HabitTracker() {
 
     async function updateCompletionHandler() {
         try {
-            const response = await axios.put("http://localhost:8080/habits",completedDates); 
+            const response = await axios.put(`${baseURL}/habits/${user_id}`,completedDates); 
             getHabitData()
             console.log(response)
         } catch (error) {
