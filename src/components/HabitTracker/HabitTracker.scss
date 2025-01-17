@@ -1,0 +1,57 @@
+
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.habit {
+    margin: 1.5rem;
+    padding: 1rem 0.5rem;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+    max-width: $mobile-width - 48;
+    
+
+    &__tracker {
+        // border: 1px solid;
+        width: 100%;
+    }
+
+    &__head {
+        // background: grey;
+    }
+
+    &__body {
+
+    }
+
+    &__habit {
+        text-align: left;
+    }
+
+    &__cell {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__clicker {
+        height: 1.25rem;
+        width: 1.25rem;
+        border: 1px solid grey;
+        border-radius: 4px;
+        margin: auto;
+
+        &--filled {
+            background: green;
+            &:hover{
+                background: rgba($color: #008000, $alpha: 0.9) ;
+            }
+        }
+
+        &--empty {
+            background: white;
+            &:hover{
+                background: rgba($color: #008000, $alpha: 0.2) ;
+            }
+        }
+    }
+}
