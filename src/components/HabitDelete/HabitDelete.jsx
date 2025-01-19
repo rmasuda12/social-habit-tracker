@@ -1,42 +1,40 @@
-import './HabitAddEdit.scss'
+import './HabitDelete.scss'
 import { useState , useEffect} from 'react';
 import axios from 'axios';
 
 //dotenv import
 const baseURL = import.meta.env.VITE_API_URL;
 
-function HabitAddEdit() {
+function HabitDelete(props) {
     const baseURL = import.meta.env.VITE_API_URL
-    // function closeModal() {
-    //     prop.setIsModalOpen(false);
-    // }
 
-    // async function deleteWarehouse() {
-    //     try {
-    //         const deleted = await axios.delete(`${baseURL}/warehouses/${prop.warehouseInfo.id}`);
-    //         prop.setIsModalOpen(false); 
-    //     } catch (error) {
-    //         console.log("error: warehouse could not be deleted")
-    //     }
-    // }
+    async function deleteHabitHandler() {
+        try {
+            const response = await axios.delete(`${baseURL}/habits/${props.editHabitData.user_id}/${props.editHabitData.id}`);
+            console.log(response.data);
+            props.setIsEditOpen(false);
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return(
         <>
-        <div className="modal__background">
-            <div className="modal__content">
-                <div className="modal__header">
-                    <img className="modal__closer" src={`${baseURL}/close-24px.svg`} onClick={closeModal}/>
+        <div className="delete__background">
+            <div className="delete__content">
+                <div className='delete__header'>
+                    <p className='delete__cancel' onClick={props.deleteClickHandler}>Cancel</p>
+                    <h1 className="delete__title">Delete Habit</h1>
                 </div>
-                <h1 className="modal__title">Delete {prop.warehouseInfo.warehouse_name} warehouse?</h1>
-                <p className="modal__text p1">Please confirm that you'd like to delete the {prop.warehouseInfo.warehouse_name} from the list of warehouses. You won't be able to undo this action.</p>
-                <div className="modal__container">
-                    <button className="modal__button modal__button--cancel" onClick={closeModal}>Cancel</button>
-                    <button className="modal__button modal__button--delete" onClick={deleteWarehouse}>Delete</button>                    
-                </div>
+                <p className='delete__text'>Please confirm that you’d like to delete <b>{props.editHabitData.habit_name}</b> from your habit list. You won’t be able to undo this action.</p>
+                <div className='delete__container'>
+                    <button type='submit' className="delete__button delete__button--delete" onClick={deleteHabitHandler}>Delete</button>                    
+                </div>     
+
             </div>
         </div>
         </>
     )
 }
 
-export default HabitAddEdit;
+export default HabitDelete;

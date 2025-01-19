@@ -43,7 +43,8 @@ function HabitAdd(props) {
                 </div>
                 <form className='add-edit__form' onSubmit={addSubmitHandler}>
                     <label className='add-edit__label'>NAME</label>
-                    <input 
+                    <div className='add-edit__function'>
+                        <input 
                         id="habitName"
                         className='add-edit__input'
                         name="habit_name"
@@ -52,6 +53,8 @@ function HabitAdd(props) {
                         onChange={handleFormChange}
                         required
                     />
+                    </div>
+                    
                 <div className='add-edit__container'>
                     <button type='submit' className="add-edit__button add-edit__button--delete" >Add Habit</button>                    
                 </div>     
