@@ -13,7 +13,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 1000;
+        z-index: 500;
     }
 
     &__content {
@@ -41,6 +41,13 @@
         padding-right: 2.875rem;
     }
 
+    &__function {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $outline;
+    }
+
     &__form {
         box-sizing: border-box;
         padding: 0.5rem 1.5rem;
@@ -55,8 +62,7 @@
     }
 
     &__input {
-        border: none;
-        border-bottom: 1px solid $outline;
+        width: 100%;
         padding: 0.5rem 0;
         color: black;
         font-size: 1.125rem;
@@ -68,8 +74,13 @@
         }
     }
 
-
-
+    &__delete {
+        cursor: pointer;
+        fill: $delete-fill;
+        &:hover{
+            fill: red;
+        }
+    }
 
     &__closer {
     cursor: pointer;

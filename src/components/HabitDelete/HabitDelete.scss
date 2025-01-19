@@ -1,95 +1,94 @@
 // @use "../../styles/partials/mixins" as *;
-// @use "../../styles/partials/variables" as *;
+@use "../../../styles/variables" as *;
 
-.modal__background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.delete {
     z-index: 1000;
-}
 
-.modal__content {
+    &__background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    &__content {
     background: white;
     height: 100%;
     width: 100%;
-    // @include tablet {
-    //     border-radius: 4px;
-    //     width: 42rem;
-    //     height: 16.375rem;
-    // }
+    }
 
-}
-
-.modal__header {
-    padding: 1rem;
+    &__header {
+    padding: 1.5rem;
     display: flex;
-    justify-content: end;
-}
+    align-items: center;
+    }
 
-.modal__closer {
+    &__cancel {
+        cursor: pointer;
+        color: $secondary-text;
+        font-size: 0.875rem;
+        justify-self: flex-start;
+    }
+
+    &__title {
+        font-size: 1.375rem;
+        margin: auto;
+        padding-right: 2.875rem;
+    }
+
+    &__function {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $outline;
+    }
+
+    &__text {
+        padding: 0 1.5rem;
+        font-size: 0.9375rem;
+    }
+
+    &__delete {
+        cursor: pointer;
+        fill: $delete-fill;
+        &:hover{
+            fill: red;
+        }
+    }
+
+    &__closer {
     cursor: pointer;
-}
+    }
 
-.modal__title {
-    font-weight: 600;
-    padding: 0 1rem;
-    // @include tablet {
-    //     padding-left: 4rem;
+    // &__text {
+    // padding: 1rem;
     // }
 
-}
-
-.modal__text {
-    padding: 1rem;
-    // @include tablet {
-    //     padding: 1rem 4rem;
-    // }
-
-}
-
-.modal__container {
+&__container {
     width: 100%;
-    padding: 0.6875rem;
+    margin: 0 1.5rem;
+    box-sizing: border-box;
     position: fixed;
     display: flex;
     justify-content: space-between;
-    bottom: 0;
-    // @include tablet {
-    //     position: relative;
-    //     bottom: none;
-    //     justify-content: end;
-    //     padding-right: 4rem;
-    // }
+    bottom: 1.5rem;
 }
-.modal__button {
+&__button {
+    bottom: 0rem;
+    font-size: 0.875rem;
     cursor: pointer;
-    height: 2.25rem;
-    width: 50%;
-    margin:0.3125rem;
-    border-radius: 20px;
-    bottom: 0;
+    height: 3.25rem;
+    width: 90%;
+    border-radius: 40px;
+    color: $main-background;
+    background: $delete-fill;
+    border: none;
 
-    // @include tablet {
-    //     height: 2.375rem;
-    //     width: auto;
-    //     padding: 0 1rem;
-    // }
-
-    &--cancel {
-        // background: $white;
-        // border: 1px solid $cloud;
-    }
-
-    &--delete {
-        // background-color: $red;
-        // border: 1px solid $red;
-        // color: $white;
-    }
-
+}
 }
