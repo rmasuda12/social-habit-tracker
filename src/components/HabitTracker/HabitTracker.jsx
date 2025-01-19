@@ -5,12 +5,12 @@ import axios from 'axios';
 //dotenv import
 const baseURL = import.meta.env.VITE_API_URL;
 
-function HabitTracker() {
+function HabitTracker(props) {
     //example data
     const user_id = 1;
     const dates = ["2025-01-01", "2025-01-02", "2025-01-03", "2025-01-04", "2025-01-05", "2025-01-06", "2025-01-07"];
 
-    const [completedDates, setCompletedDates] = useState([]);
+    const [habitData, setHabitData] = useState([]);
     // [
     //     {
     //     "completion_dates": ["2025-01-01", "2025-01-02", "2025-01-03"],
@@ -20,41 +20,52 @@ function HabitTracker() {
     //     }
 
     // ]
+
     async function getHabitData() {
         const response = await axios.get(`${baseURL}/habits/${user_id}`);
         console.log(response.data)
-        setCompletedDates(response.data)
+        setHabitData(response.data)
     }
 
     useEffect(()=> {
         getHabitData();
-    },[])
+    },[props.isModalOpen, props.isEditOpen])
 
     function habitClickHandler(habitIndex, date) {
-        const newCompletedDates = [...completedDates];
-        console.log("this is the habit clickec on",completedDates[habitIndex].habit_name )
+        const newHabitData = [...habitData];
+        console.log("this is the habit clicked on",habitData[habitIndex].habit_name )
 
-        if (completedDates[habitIndex].completion_dates.includes(date)){
-            const index = completedDates[habitIndex].completion_dates.indexOf(date);
-            newCompletedDates[habitIndex].completion_dates.splice(index, 1);
-            setCompletedDates(newCompletedDates);
+        if (habitData[habitIndex].completion_dates.includes(date)){
+            const index = habitData[habitIndex].completion_dates.indexOf(date);
+            newHabitData[habitIndex].completion_dates.splice(index, 1);
+            setHabitData(newHabitData);
         } else {
             console.log('running else');
-            newCompletedDates[habitIndex].completion_dates.push(date);
-            setCompletedDates(newCompletedDates);
+            newHabitData[habitIndex].completion_dates.push(date);
+            setHabitData(newHabitData);
         }
+    }
+
+    function nameClickHandler(habitIndex) {
+        const {user_id, id, habit_name} = habitData[habitIndex]
+        const habitInfo = {
+            user_id: user_id,
+            id: id,
+            habit_name: habit_name
+        }
+        props.setEditHabitData(habitInfo);
+        props.setIsEditOpen(true);
     }
 
     async function updateCompletionHandler() {
         try {
-            const response = await axios.put(`${baseURL}/habits/${user_id}`,completedDates); 
+            const response = await axios.put(`${baseURL}/habits/${user_id}`,habitData); 
             getHabitData()
             console.log(response)
         } catch (error) {
             console.log(error);
         }
     }
-    console.log(completedDates);
 
     return(
         <>
@@ -73,9 +84,9 @@ function HabitTracker() {
             </tr>
         </thead>
         <tbody className='habit__body'>
-          {completedDates.map((habit, habitIndex) => (
+          {habitData.map((habit, habitIndex) => (
             <tr key={habitIndex}>
-              <th className='habit__habit'>{habit.habit_name}</th>
+              <th className='habit__habit' onClick={() => nameClickHandler(habitIndex)}>{habit.habit_name}</th>
               {dates.map((date, dateIndex) => (
 
                 <td className='' key={dateIndex}>

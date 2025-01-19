@@ -26,6 +26,7 @@
 
     &__habit {
         text-align: left;
+        cursor: pointer;
     }
 
     &__cell {
@@ -41,16 +42,16 @@
         margin: auto;
 
         &--filled {
-            background: green;
+            background: $main-fill;
             &:hover{
-                background: rgba($color: #008000, $alpha: 0.9) ;
+                background: rgba($color: $main-fill, $alpha: 0.9) ;
             }
         }
 
         &--empty {
-            background: white;
+            // background: white;
             &:hover{
-                background: rgba($color: #008000, $alpha: 0.2) ;
+                background: rgba($color: $main-fill, $alpha: 0.2) ;
             }
         }
     }
