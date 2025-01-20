@@ -7,6 +7,7 @@ import HabitTracker from "../../components/HabitTracker/HabitTracker";
 import HabitAdd from "../../components/HabitAdd/HabitAdd";
 import HabitEdit from "../../components/HabitEdit/HabitEdit";
 import HabitWeek from "../../components/HabitWeek/HabitWeek";
+import HabitGraph from "../../components/HabitGraph/HabitGraph";
 
 function HomePage() {
     const [isModalOpen,setIsModalOpen] = useState(false);
