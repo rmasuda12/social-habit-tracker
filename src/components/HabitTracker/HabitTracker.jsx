@@ -2,6 +2,7 @@ import './HabitTracker.scss'
 import { useState , useEffect} from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
+import HabitGraph from '../HabitGraph/HabitGraph';
 
 //dotenv import
 const baseURL = import.meta.env.VITE_API_URL;
@@ -108,6 +109,9 @@ function HabitTracker(props) {
         </tbody>
       </table>
       {/* <button onClick={updateCompletionHandler}>submit</button> */}
+    </div>
+    <div className='habit'>
+    <HabitGraph dates={dates} habitData={habitData}/>
     </div>
     </>
     )
