@@ -1,0 +1,58 @@
+.home {
+    &__header {
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__icon {
+      cursor: pointer;
+    }
+}
+
+/* HabitTracker.css */
+.habit-tracker {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .header-row, .row {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-cell, .habit-name, .cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .habit-name {
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    flex-shrink: 0;
+    width: 100px; /* Adjust width for habit names */
+  }
+  
+  .cell {
+    cursor: pointer;
+    background-color: white;
+  }
+  
+  .cell.filled {
+    background-color: #00c851; /* Green color */
+  }
+  
+  .header-cell {
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+  }
