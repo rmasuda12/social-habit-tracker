@@ -1,6 +1,7 @@
 import './HabitTracker.scss'
 import { useState , useEffect} from 'react';
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 //dotenv import
 const baseURL = import.meta.env.VITE_API_URL;
@@ -8,7 +9,8 @@ const baseURL = import.meta.env.VITE_API_URL;
 function HabitTracker(props) {
     //example data
     const user_id = 1;
-    const dates = ["2025-01-01", "2025-01-02", "2025-01-03", "2025-01-04", "2025-01-05", "2025-01-06", "2025-01-07"];
+    const dates = props.weekDays
+    const today = dayjs().format('YYYY-MM-DD');
 
     const [habitData, setHabitData] = useState([]);
     // [
@@ -75,10 +77,12 @@ function HabitTracker(props) {
             <tr>
             <th></th>
                 {dates.map((date, index) => {
+                    const check = today === dayjs(date).format('YYYY-MM-DD');
+                    console.log(check)
                     const dateData = new Date(date);
                     const day = dateData.getUTCDate(); 
                     return(
-                    <th key={index} className='habit__date'>{day}</th>
+                    <th key={index} className={check? 'habit__today': ''}>{day}</th>
                     )
                 })}
             </tr>
