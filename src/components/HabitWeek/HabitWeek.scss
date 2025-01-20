@@ -1,0 +1,19 @@
+.week-view {
+    margin: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+
+    &__title {
+        font-size: 0.875rem;
+    }
+
+    &__date {
+        font-size: 0.75rem;
+        color: #686873;
+    }
+
+    &__chev {
+        padding-left: 1.5rem;
+        cursor: pointer;
+    }
+}

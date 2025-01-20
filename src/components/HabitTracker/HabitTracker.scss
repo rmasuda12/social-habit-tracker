@@ -16,12 +16,12 @@
         width: 100%;
     }
 
-    &__head {
-        // background: grey;
-    }
-
-    &__body {
-
+    &__today {
+        width: 22px;
+        margin: auto;
+        background: $main-fill;
+        color: white;
+        border-radius: 100px;
     }
 
     &__habit {
