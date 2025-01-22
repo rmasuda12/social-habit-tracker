@@ -7,7 +7,7 @@ import HabitTracker from "../../components/HabitTracker/HabitTracker";
 import HabitAdd from "../../components/HabitAdd/HabitAdd";
 import HabitEdit from "../../components/HabitEdit/HabitEdit";
 import HabitWeek from "../../components/HabitWeek/HabitWeek";
-
+import NavBar from "../../components/NavBar/NavBar";
 function HomePage() {
     const [isModalOpen,setIsModalOpen] = useState(false);
     const [isEditOpen, setIsEditOpen] = useState(false);
@@ -46,6 +46,9 @@ function HomePage() {
         </section>
         {isModalOpen? <HabitAdd setIsModalOpen={setIsModalOpen}/>: ''}
         {isEditOpen? <HabitEdit setIsEditOpen={setIsEditOpen} editHabitData={editHabitData} setEditHabitData={setEditHabitData}/>: ""}
+        <section className="home__padding">
+        </section>
+        <NavBar/>
         </>
     )
 };
