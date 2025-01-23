@@ -44,6 +44,8 @@ function FriendsPage() {
                 {friends.map((friend, i)=> <FriendCard key={i} friend={friend}/>)}
             </div>
         </section>
+        <section className="home__padding">
+        </section>
         <NavBar/>
         </>
     )
