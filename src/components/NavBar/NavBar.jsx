@@ -3,7 +3,6 @@ import group from '../../assets/icons/group.svg'
 import home from '../../assets/icons/home.svg'
 import { ReactSVG } from "react-svg";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 function NavBar() {

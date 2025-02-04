@@ -8,21 +8,11 @@ import HabitGraph from '../HabitGraph/HabitGraph';
 const baseURL = import.meta.env.VITE_API_URL;
 
 function HabitTracker(props) {
-    //example data
     const user_id = 1;
     const dates = props.weekDays
     const today = dayjs().format('YYYY-MM-DD');
 
     const [habitData, setHabitData] = useState([]);
-    // [
-    //     {
-    //     "completion_dates": ["2025-01-01", "2025-01-02", "2025-01-03"],
-    //     "habit_name": "Drink Water",
-    //     "id": 1,
-    //     "user_id": 1
-    //     }
-
-    // ]
 
     async function getHabitData() {
         try {
@@ -40,7 +30,7 @@ function HabitTracker(props) {
 
     function habitClickHandler(habitIndex, date) {
         const newHabitData = [...habitData];
-        
+
         if (habitData[habitIndex].completion_dates.includes(date)){
             const index = habitData[habitIndex].completion_dates.indexOf(date);
             newHabitData[habitIndex].completion_dates.splice(index, 1);

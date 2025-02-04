@@ -10,7 +10,6 @@ function FriendsPage() {
     const userID = 1;
 
     const [friends, setFriends] = useState([]);
-    const [user, setUser] = useState([])
 
     async function getFriends() {
         try {
