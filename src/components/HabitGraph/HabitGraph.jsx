@@ -4,10 +4,6 @@ import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
 function HabitGraph({dates, habitData}) {
-
-    console.log('these are the dates in graph', dates);
-    console.log('these are habitData', habitData)
-
     const [completion, setCompletion] = useState([]);
     const [formatedDates, setFormatedDates] = useState([]);
     
@@ -16,7 +12,6 @@ function HabitGraph({dates, habitData}) {
         const completionRatio = [];
         const numHabits = habitData.length;
         for (const day of dates) {
-            console.log(day);
             let numCompleted = 0;
             for (const habit of habitData) {
                 if (habit.completion_dates.includes(day)) {
@@ -32,7 +27,6 @@ function HabitGraph({dates, habitData}) {
         const newDate = dates.map(date => dayjs(date).date())
         setFormatedDates(newDate);
     },[dates])
-
 
     const options = {
         chart: {

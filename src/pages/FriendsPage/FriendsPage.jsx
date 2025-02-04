@@ -16,9 +16,9 @@ function FriendsPage() {
             const response = await axios.get(`${baseURL}/friends`);
             const friendList = response.data[0].map((f)=>{
                 if (f.friend_id === userID) {
-                    return {friend_name: f.user_name, status: f.status, completion: f.user_completion};
+                    return {friend_name: f.user_name, status: f.status, completion: f.user_completion, profile: f.user_profile};
                 } else {
-                    return {friend_name: f.friend_name, status: f.status, completion: f.friend_completion};
+                    return {friend_name: f.friend_name, status: f.status, completion: f.friend_completion, profile: f.friend_profile};
                 };
             })
             setFriends(friendList);    
@@ -29,23 +29,24 @@ function FriendsPage() {
     }
 
     useEffect(()=> {getFriends()}, []);
-    console.log('this is friends',friends);
 
     return(
-        <>
+        <div className="wrapper">
         <section className="home__header">
             <h2 className="home__title">Friends</h2>
             <svg className="home__icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
             </svg>
         </section>
         <section className="friend">
-            <p className="friend__label">3 Friends</p>
+            <p className="friend__label">{friends.length} Friends</p>
             <div className="friend__list">
                 {friends.map((friend, i)=> <FriendCard key={i} friend={friend}/>)}
             </div>
         </section>
+        <section className="home__padding">
+        </section>
         <NavBar/>
-        </>
+        </div>
     )
 };
 

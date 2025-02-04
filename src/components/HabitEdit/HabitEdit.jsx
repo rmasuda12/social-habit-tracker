@@ -12,8 +12,6 @@ function HabitEdit({setEditHabitData, setIsEditOpen, editHabitData}) {
     const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
     function deleteClickHandler() {
-        console.log('clicked')
-        console.log(isDeleteOpen)
         setIsDeleteOpen(!isDeleteOpen);
     }
 
@@ -29,7 +27,6 @@ function HabitEdit({setEditHabitData, setIsEditOpen, editHabitData}) {
         event.preventDefault();
         try {
             const response = await axios.put(`${baseURL}/habits/${user_id}/edit`, editHabitData);
-            console.log(response);
             closeModal(); 
         } catch (error) {
             console.log(error);

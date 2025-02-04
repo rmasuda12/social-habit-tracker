@@ -5,16 +5,21 @@ function FriendCard({friend}) {
     const chartOptions = {
         chart: {
         type: 'radialBar',
-        // height: '100%', // Set your desired chart height
-        // width:'100%',  // Set your desired chart width
+        height: '100%',
+        width: '100%',
+        sparkline: {
+            enabled: true, // Removes extra space for toolbars and axes
+        },
         },
         plotOptions: {
           radialBar: {
+            offsetX: 0,
+            offsetY: 0,
             track: {
                 margin: 0
             },
             hollow: {
-              size: '60%', // Adjust the hollow size of the center
+              size: '40%', // Adjust the hollow size of the center
             },
             dataLabels: {
               show: false,
@@ -29,15 +34,24 @@ function FriendCard({friend}) {
       };
     
       const series = [friend.completion];
+      
     return(
         <>
         <article className='friend__card'>
+
+           
+            <div className='friend__container'>           
+                <div className='friend__image-container'>
+                    <img className='friend__image' src={friend.profile} alt='picture of user'/>
+                </div>
             <div>
-            <p className='friend__name'>{friend.friend_name}</p>
-            <p className='friend__stats'>{friend.completion}%</p>
+                <p className='friend__name'>{friend.friend_name}</p>
+                <p className='friend__stats'>{friend.completion}%</p>
+            </div>
+           
             </div>
             <div className={'friend__chart'}>
-             <Chart options={chartOptions} series={series} type="radialBar" height={350} />
+             <Chart options={chartOptions} series={series} type="radialBar" height={500} />
             </div>
         </article>
         </>

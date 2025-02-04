@@ -25,7 +25,6 @@ function HabitAdd(props) {
         event.preventDefault();
         try {
             const response = await axios.post(`${baseURL}/habits/${user_id}`, formData);
-            console.log(response);
             closeModal(); 
         } catch (error) {
             console.log(error);
@@ -34,7 +33,6 @@ function HabitAdd(props) {
     }
 
     return(
-        <>
         <div className="add-edit__background">
             <div className="add-edit__content">
                 <div className='add-edit__header'>
@@ -62,7 +60,6 @@ function HabitAdd(props) {
 
             </div>
         </div>
-        </>
     )
 }
 
