@@ -32,7 +32,7 @@ VITE_API_URL: "http://localhost:[port number]"
 ```
 
 #### Initialize Backend
-Follow steps for installing and setting up the [Backend Repo](https://github.com/rmasuda12/habit-tracker-backend)
+Follow steps for installing and setting up the [Backend Repo](https://github.com/rmasuda12/habit-tracker-backend.git)
 
 #### Start app
 ```bash
