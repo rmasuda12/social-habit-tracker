@@ -25,7 +25,6 @@ function HabitAdd(props) {
         event.preventDefault();
         try {
             const response = await axios.post(`${baseURL}/habits/${user_id}`, formData);
-            console.log(response);
             closeModal(); 
         } catch (error) {
             console.log(error);

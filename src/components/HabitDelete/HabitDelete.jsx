@@ -11,7 +11,6 @@ function HabitDelete(props) {
     async function deleteHabitHandler() {
         try {
             const response = await axios.delete(`${baseURL}/habits/${props.editHabitData.user_id}/${props.editHabitData.id}`);
-            console.log(response.data);
             props.setIsEditOpen(false);
         } catch (error) {
             console.log(error)

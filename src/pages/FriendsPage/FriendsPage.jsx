@@ -30,7 +30,6 @@ function FriendsPage() {
     }
 
     useEffect(()=> {getFriends()}, []);
-    console.log('this is friends',friends);
 
     return(
         <div className="wrapper">

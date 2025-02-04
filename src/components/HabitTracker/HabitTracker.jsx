@@ -40,14 +40,12 @@ function HabitTracker(props) {
 
     function habitClickHandler(habitIndex, date) {
         const newHabitData = [...habitData];
-        console.log("this is the habit clicked on",habitData[habitIndex].habit_name )
-
+        
         if (habitData[habitIndex].completion_dates.includes(date)){
             const index = habitData[habitIndex].completion_dates.indexOf(date);
             newHabitData[habitIndex].completion_dates.splice(index, 1);
             setHabitData(newHabitData);
         } else {
-            console.log('running else');
             newHabitData[habitIndex].completion_dates.push(date);
             setHabitData(newHabitData);
         }
@@ -68,7 +66,6 @@ function HabitTracker(props) {
         try {
             const response = await axios.put(`${baseURL}/habits/${user_id}`,habitData); 
             getHabitData()
-            console.log(response)
         } catch (error) {
             console.log(error);
         }
@@ -83,7 +80,6 @@ function HabitTracker(props) {
             <th></th>
                 {dates.map((date, index) => {
                     const check = today === dayjs(date).format('YYYY-MM-DD');
-                    console.log(check)
                     const dateData = new Date(date);
                     const day = dateData.getUTCDate(); 
                     return(
