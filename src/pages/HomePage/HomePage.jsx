@@ -1,6 +1,6 @@
 import "./Homepage.scss";
-import React, { useEffect } from "react";
 import dayjs from "dayjs";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 import HabitTracker from "../../components/HabitTracker/HabitTracker";
@@ -8,20 +8,18 @@ import HabitAdd from "../../components/HabitAdd/HabitAdd";
 import HabitEdit from "../../components/HabitEdit/HabitEdit";
 import HabitWeek from "../../components/HabitWeek/HabitWeek";
 import NavBar from "../../components/NavBar/NavBar";
+
+
 function HomePage() {
     const [isModalOpen,setIsModalOpen] = useState(false);
     const [isEditOpen, setIsEditOpen] = useState(false);
+    
     function addClickHandler() {
         setIsModalOpen(true);
     }
 
-    const [editHabitData, setEditHabitData] = useState({
-    })
-
+    const [editHabitData, setEditHabitData] = useState({})
     const [currentWeekStart, setCurrentWeekStart] = useState(dayjs().startOf('week'));
-
-    console.log(currentWeekStart)
-
     const [weekDays, setWeekDays] = useState([]);
     
     useEffect(()=> {

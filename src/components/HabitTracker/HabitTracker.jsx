@@ -27,7 +27,6 @@ function HabitTracker(props) {
     async function getHabitData() {
         try {
             const response = await axios.get(`${baseURL}/habits/${user_id}`);
-            console.log(response.data)
             setHabitData(response.data)            
         } catch (error) {
             console.log(error)

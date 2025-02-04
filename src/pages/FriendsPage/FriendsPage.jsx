@@ -10,15 +10,16 @@ function FriendsPage() {
     const userID = 1;
 
     const [friends, setFriends] = useState([]);
+    const [user, setUser] = useState([])
 
     async function getFriends() {
         try {
             const response = await axios.get(`${baseURL}/friends`);
             const friendList = response.data[0].map((f)=>{
                 if (f.friend_id === userID) {
-                    return {friend_name: f.user_name, status: f.status, completion: f.user_completion};
+                    return {friend_name: f.user_name, status: f.status, completion: f.user_completion, profile: f.user_profile};
                 } else {
-                    return {friend_name: f.friend_name, status: f.status, completion: f.friend_completion};
+                    return {friend_name: f.friend_name, status: f.status, completion: f.friend_completion, profile: f.friend_profile};
                 };
             })
             setFriends(friendList);    
@@ -39,7 +40,7 @@ function FriendsPage() {
             </svg>
         </section>
         <section className="friend">
-            <p className="friend__label">3 Friends</p>
+            <p className="friend__label">{friends.length} Friends</p>
             <div className="friend__list">
                 {friends.map((friend, i)=> <FriendCard key={i} friend={friend}/>)}
             </div>

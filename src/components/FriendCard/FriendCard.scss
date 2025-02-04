@@ -10,6 +10,28 @@
         align-items: center;
     }
 
+    &__image {
+        // width: auto;
+        position: absolute;
+        height: 125%;
+        object-fit: cover;
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+    }
+
+
+    &__image-container {
+        height: 3rem;
+        width: 3rem;
+        overflow: hidden;
+        position: relative;
+        border-radius: 50px;
+        margin-right: 0.5rem;
+    }
+
     &__chart {
         // display: flex;
         // justify-content: center;
