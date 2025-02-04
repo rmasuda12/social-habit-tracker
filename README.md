@@ -6,14 +6,13 @@ A minimialistic habit tracker where users can connect and compete with friends f
 - **Habit management**: creation, update, and deletion
 - **Visualize habits**: graph view of habit completion trends
 - **Friend list**: see the progress your friends are making 
-- More features coming!
-- [Watch the presentation](https://www.loom.com/share/c2af9b77023d48e386eb622bd7a75557?sid=a06e9b64-5029-44ec-80c5-631755b1ca63)
+- More features coming soon...
+- [Watch my project presentation](https://www.loom.com/share/c2af9b77023d48e386eb622bd7a75557?sid=a06e9b64-5029-44ec-80c5-631755b1ca63)
 
 ### 🛠️ Tech Stack
 
-**Front End:** React, Sass, Axios
-**Back End:** Node.js, Express, Knex, MySQL
-[Backend Repo](https://github.com/rmasuda12/habit-tracker-backend)
+- **Front End:** React, Sass, Axios
+- **[Back End:](https://github.com/rmasuda12/habit-tracker-backend)** Node.js, Express, Knex, MySQL
 
 ## 📦 Installation & Setup
 
@@ -40,19 +39,17 @@ Follow steps for installing and setting up the [Backend Repo](https://github.com
 npm start
 ```
 
-## Implementation
+## App Pages
 
-### Sitemap
-
-- **HomePage**
+### HomePage
 ![Homepage](./src/assets/screenshots/home_page.png)
-- **Create Habit**
+### Create Habit
 ![Create habit page](./src/assets/screenshots/add_habit.png)
-- **Edit Habit**
+### Edit Habit
 ![Edit habit page](./src/assets/screenshots/edit_habit.png)
-- **Delete Habit**
+### Delete Habit
 ![Delete habit page](./src/assets/screenshots/delete_habit.png)
-- **Friends Page**
+### Friends Page
 ![List of Friends and competition](./src/assets/screenshots/social_page.png)
 
 For more details see my [Figma Mock Up](https://www.figma.com/design/5A037qDpKMHhi07R120DAU/Habit-Tracker?m=auto&t=0NKOGAIiGJOpEGI7-6)
