@@ -1,4 +1,4 @@
-// @use "../../styles/partials/mixins" as *;
+@use "../../../styles/mixins" as *;
 @use "../../../styles/variables" as *;
 
 .delete {
@@ -21,6 +21,7 @@
     background: white;
     height: 100%;
     width: 100%;
+    @include mobile{}
     }
 
     &__header {
@@ -66,10 +67,6 @@
     cursor: pointer;
     }
 
-    // &__text {
-    // padding: 1rem;
-    // }
-
 &__container {
     width: 100%;
     margin: 0 1.5rem;
@@ -78,7 +75,9 @@
     display: flex;
     justify-content: space-between;
     bottom: 1.5rem;
+    @include mobile{}
 }
+
 &__button {
     bottom: 0rem;
     font-size: 0.875rem;
@@ -89,6 +88,6 @@
     color: $main-background;
     background: $delete-fill;
     border: none;
-
+    @include mobile{}
 }
 }

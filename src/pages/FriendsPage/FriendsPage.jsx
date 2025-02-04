@@ -33,7 +33,7 @@ function FriendsPage() {
     console.log('this is friends',friends);
 
     return(
-        <>
+        <div className="wrapper">
         <section className="home__header">
             <h2 className="home__title">Friends</h2>
             <svg className="home__icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/>
@@ -48,7 +48,7 @@ function FriendsPage() {
         <section className="home__padding">
         </section>
         <NavBar/>
-        </>
+        </div>
     )
 };
 
