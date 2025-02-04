@@ -33,6 +33,8 @@ function HabitGraph({dates, habitData}) {
         setFormatedDates(newDate);
     },[dates])
 
+    console.log('this is completion', completion)
+
 
     const options = {
         chart: {

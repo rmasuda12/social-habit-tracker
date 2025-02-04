@@ -34,12 +34,21 @@ function FriendCard({friend}) {
       };
     
       const series = [friend.completion];
+    console.log(friend);
     return(
         <>
         <article className='friend__card'>
+
+           
+            <div className='friend__container'>           
+                <div className='friend__image-container'>
+                    <img className='friend__image' src={friend.profile} alt='picture of user'/>
+                </div>
             <div>
-            <p className='friend__name'>{friend.friend_name}</p>
-            <p className='friend__stats'>{friend.completion}%</p>
+                <p className='friend__name'>{friend.friend_name}</p>
+                <p className='friend__stats'>{friend.completion}%</p>
+            </div>
+           
             </div>
             <div className={'friend__chart'}>
              <Chart options={chartOptions} series={series} type="radialBar" height={500} />
