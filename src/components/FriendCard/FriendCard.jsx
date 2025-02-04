@@ -34,7 +34,7 @@ function FriendCard({friend}) {
       };
     
       const series = [friend.completion];
-    console.log(friend);
+      
     return(
         <>
         <article className='friend__card'>

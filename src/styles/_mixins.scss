@@ -1,4 +1,5 @@
 //added flex,mobile,mobile width mixins by mishal for warehouse tables
+@use './variables' as *;
 
 @mixin flex($align: center, $justify: center) {
     display: flex;
@@ -8,6 +9,8 @@
   
 @mixin mobile {
 @media (min-width: $mobile-width) {
+    max-width: $mobile-width;
+    margin: auto; 
     @content;
 }
 }
