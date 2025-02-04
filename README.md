@@ -44,15 +44,18 @@ npm start
 
 ### Sitemap
 
-- ![Homepage](./src/assets/screenshots/home_page.png)
-- ![Create habit page](./src/assets/screenshots/add_habit.png)
-- ![Edit habit page](./src/assets/screenshots/edit_habit.png)
-- ![Delete habit page](./src/assets/screenshots/delete_habit.png)
-- ![List of Friends and competition](./src/assets/screenshots/social_page.png)
+- **HomePage**
+![Homepage](./src/assets/screenshots/home_page.png)
+- **Create Habit**
+![Create habit page](./src/assets/screenshots/add_habit.png)
+- **Edit Habit**
+![Edit habit page](./src/assets/screenshots/edit_habit.png)
+- **Delete Habit**
+![Delete habit page](./src/assets/screenshots/delete_habit.png)
+- **Friends Page**
+![List of Friends and competition](./src/assets/screenshots/social_page.png)
 
-### Mockup
-
-![](https://www.figma.com/design/5A037qDpKMHhi07R120DAU/Habit-Tracker?m=auto&t=0NKOGAIiGJOpEGI7-6)
+For more details see my [Figma Mock Up](https://www.figma.com/design/5A037qDpKMHhi07R120DAU/Habit-Tracker?m=auto&t=0NKOGAIiGJOpEGI7-6)
 
 ---
 
